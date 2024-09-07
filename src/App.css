@@ -1,38 +1,172 @@
-.App {
-  text-align: center;
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2,
+h3 {
+  margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-search {
+  display: flex;
+  height: 48px;
+  padding: var(--Spacing-space-0, 0px) var(--Spacing-space-8, 16px);
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--Spacing-space-6, 10px);
+  align-self: stretch;
+  border-radius: 100px;
+  background: #bdbdbd;
+  border: 2px solid transparent; /* Initial border color */
+  padding-right: 30px; /* Space for the icon */
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.input-search:focus,
+.input-search:active,
+.input-search:hover {
+  border-color: #7d7d7d; /* Color matching the background for hover, focus, and active states */
+  outline: none; /* Remove default focus outline */
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px; /* Adjust size as needed */
+  height: 20px; /* Adjust size as needed */
+}
+
+.container {
+  position: relative; /* Make sure the container is positioned relatively */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.input-search-container {
+  position: relative;
+  width: 100%;
+}
+.city-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.city-item {
+  flex: 1;
+  justify-content: space-between;
+  display: flex;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.city-item img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  max-width: 1000px;
+  margin: 0 auto; /* Center the grid */
+  padding: 20px;
+  box-sizing: border-box; /* Ensure padding is included in the total width */
+}
+
+/* Accordion styling */
+.forecast-accordion {
+  width: 100%;
+  margin: 20px auto;
+}
+
+.accordion-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 
+}
+
+.accordion-content {
+  padding: 15px;
+}
+
+.forecast-item {
+  flex: 1;
+  justify-content: space-between;
+  display: flex;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 25px;
+}
+
+.forecast-item img {
+  width: 50px;
+  height: 50px;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .forecast {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 }
+
+@media (max-width: 900px) {
+  .forecast {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .forecast {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjusting for smaller devices */
+    padding: 10px; /* Reduce padding on smaller screens */
+  }
+
+  .forecast-item {
+    padding: 8px; /* Reduce padding */
+  }
+
+  .forecast-item img {
+    width: 40px; /* Smaller images on smaller screens */
+    height: 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  .forecast-item {
+    padding: 5px; /* Further reduce padding */
+  }
+
+  .forecast-item img {
+    width: 35px; /* Further reduce image size */
+    height: 35px;
+  }
+}
+
